@@ -1,0 +1,5 @@
+{
+	"items": [
+		{"name": "VNDS", "priority": 3568, "action": "/mnt/us/extensions/VNDS/run.sh"}
+	]
+}
