@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="dummypc.js"></script>        
+        <style>
+            #holder {
+                width: 550px; height: 700px;
+                text-align: left;
+                font-size: 25px;
+                -webkit-user-select: none;
+            }
+            #listp img{
+               margin-bottom: -3px;
+               margin-top: 5px;
+            }
+            a {
+                text-decoration: none;
+            }
+        </style>    
+    </head>
+    <body>
+       <div id="holder" >
+      <!--     <img src="logo.png">
+           <p>Select game<br>=========================</p> -->
+           <p id="listp"></p>
+           
+           
+       </div>    
+        <script>
+            kindle.chrome.setTitleBar('', 'VNDS for Kindle Touch');
+            $.ajaxSetup({ async: false }); 
+            console.log('x');
+            var list=$.ajax("gamelist").responseText.slice(0,-1).split("\n");
+            console.log(list);
+            $.each(list, function(value) {
+                var name=$.ajax("games/"+list[value]+"/info.txt").responseText;
+                name=$.trim(name.slice(6));
+                console.log(value,name);
+                $("#listp").html( $("#listp").html() + '<a href="main.html?game='+list[value]+'"><img src="games/'+list[value]+'/icon.png">'+name+'</a><br>');
+            })
+        </script>
+        
+        
+    </body>
+</html>

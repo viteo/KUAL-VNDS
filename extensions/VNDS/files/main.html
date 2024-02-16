@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>VNDS for kindle touch</title>
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="dummypc.js"></script>
+   
+        <script type="text/javascript" src="main.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="main.css" />
+
+    </head>
+    <body style="overflow: hidden">
+
+        <div id="holder">
+            
+            <div id="menuholder">
+                <table id="menu"  ></table>
+                <div id="undermenu" onclick="$('#menuholder').css('display', 'none');">
+                </div>    
+            </div>
+            <div id="menuclickdiv" onclick="showmenu();"></div>    
+            <div id="hidetextclickdiv" onclick="hidetext();"></div>
+            <div id="einkrefreshdivclick" onclick="einkrefreshclick();"></div> 
+            <div id="textlogclickdiv" onclick="textlogshow();"></div>
+            <div id="hidetext" onclick="unhidetext();"></div>
+            <div id="textlogholder">
+                <div id="textlogupdiv" onclick="textlogscroll(500);"></div>
+                <div id="textlogdowndiv" onclick="textlogscroll(-500);"></div>
+                <div id="textlogexitdiv" onclick="textloghide();"></div>
+                <div id="textlogarea"></div>
+            </div>
+            <div id="saveloadholder">
+                <div id="saveload0" class="saveload" onclick="saveloadclick(globalstate.saveloadpage*5+0);"> 
+                   <img id="saveloadimg0" class="saveloadimg" src="empty.png">  
+                   <p id="saveloadtext0" class="saveloadtext"></p>
+                   <p id="saveloadtime0" class="saveloadtime"></p>
+                   <p id="saveloadnumber0" class="saveloadnumber"></p>
+                </div>    
+                <div id="saveload1" class="saveload" onclick="saveloadclick(globalstate.saveloadpage*5+1);"> 
+                   <img id="saveloadimg1" class="saveloadimg" src="empty.png">  
+                   <p id="saveloadtext1" class="saveloadtext"></p>
+                   <p id="saveloadtime1" class="saveloadtime"></p>
+                   <p id="saveloadnumber1" class="saveloadnumber"></p>
+                </div>    
+                <div id="saveload2" class="saveload" onclick="saveloadclick(globalstate.saveloadpage*5+2);"> 
+                   <img id="saveloadimg2" class="saveloadimg" src="empty.png">  
+                   <p id="saveloadtext2" class="saveloadtext"></p>
+                   <p id="saveloadtime2" class="saveloadtime"></p>
+                   <p id="saveloadnumber2" class="saveloadnumber"></p>
+                </div>    
+                <div id="saveload3" class="saveload" onclick="saveloadclick(globalstate.saveloadpage*5+3);"> 
+                   <img id="saveloadimg3" class="saveloadimg" src="empty.png">  
+                   <p id="saveloadtext3" class="saveloadtext"></p>
+                   <p id="saveloadtime3" class="saveloadtime"></p>
+                   <p id="saveloadnumber3" class="saveloadnumber"></p>
+                </div>      
+                <div id="saveload4" class="saveload" onclick="saveloadclick(globalstate.saveloadpage*5+4);"> 
+                   <img id="saveloadimg4" class="saveloadimg" src="empty.png">  
+                   <p id="saveloadtext4" class="saveloadtext"></p>
+                   <p id="saveloadtime4" class="saveloadtime"></p>
+                   <p id="saveloadnumber4" class="saveloadnumber"></p>
+                </div>       
+                
+           
+                
+                
+
+                <table id="saveloadtable" rules="all">
+                  <tr>
+                      <td id="saveloadpage0" class="saveloadpage" onclick="saveloadpage(0);"></td>
+                      <td id="saveloadpage1" class="saveloadpage" onclick="saveloadpage(1);"></td>
+                      <td id="saveloadpage2" class="saveloadpage" onclick="saveloadpage(2);"></td>
+                      <td id="saveloadpage3" class="saveloadpage" onclick="saveloadpage(3);"></td>
+                      <td id="saveloadpage4" class="saveloadpage" onclick="saveloadpage(4);"></td>
+                      <td id="saveloadpage5" class="saveloadpage" onclick="saveloadpage(5);"></td>
+                      <td id="saveloadpage6" class="saveloadpage" onclick="saveloadpage(6);"></td>
+                      <td id="saveloadpage7" class="saveloadpage" onclick="saveloadpage(7);"></td>
+                      <td id="saveloadpage8" class="saveloadpage" onclick="saveloadpage(8);"></td>
+                      <td id="saveloadpage9" class="saveloadpage" onclick="saveloadpage(9);"></td>
+                      <td id="saveloadpage10" class="saveloadpage" onclick="saveloadpage(10);"></td>
+                      <td id="saveloadpage11" class="saveloadpage" onclick="saveloadpage(11);"></td>
+                      <td id="saveloadpage12" class="saveloadpage" onclick="saveloadpage(12);"></td>
+                      <td id="saveloadpage13" class="saveloadpage" onclick="saveloadpage(13);"></td>
+                      <td id="saveloadpage14" class="saveloadpage" onclick="saveloadpage(14);"></td>
+                      <td id="saveloadpage15" class="saveloadpage" onclick="saveloadpage(15);"></td>
+                      <td id="saveloadpage16" class="saveloadpage" onclick="saveloadpage(16);"></td>
+                      <td id="saveloadpage17" class="saveloadpage" onclick="saveloadpage(17);"></td>
+                      <td id="saveloadpage18" class="saveloadpage" onclick="saveloadpage(18);"></td>
+                      <td id="saveloadpage19" class="saveloadpage" onclick="saveloadpage(19);"></td>
+                      
+                  </tr>  
+                </table>
+                <div id="saveloadclose" onclick="hidesaveload();"></div>
+                
+            </div>
+            
+            <div id="optionsholder">
+                       <p class="optionslabel" style="top: 50px; left: 80px;">Music</p>
+       <p class="optionslabel" style="top: 100px; left: 80px;">Sound</p>
+       <p class="optionslabel" style="top: 200px; left: 80px;">Rotation</p> 
+       
+       <div class="optionsbutton" onclick="hideoptions();" style="left :500px; top: 500px;"><p>Close</p></div>
+       <table class="volumetable" style="left :200px; top: 50px;">
+                  <tr>
+                      <td id="volumemusic0" class="volumemusic" onmousedown="volumeclick(0,'music');"></td>
+                      <td id="volumemusic1" class="volumemusic" onmousedown="volumeclick(1,'music');"></td>
+                      <td id="volumemusic2" class="volumemusic" onmousedown="volumeclick(2,'music');"></td>
+                      <td id="volumemusic3" class="volumemusic" onmousedown="volumeclick(3,'music');"></td>
+                      <td id="volumemusic4" class="volumemusic" onmousedown="volumeclick(4,'music');"></td>
+                      <td id="volumemusic5" class="volumemusic" onmousedown="volumeclick(5,'music');"></td>
+                      <td id="volumemusic6" class="volumemusic" onmousedown="volumeclick(6,'music');"></td>
+                      <td id="volumemusic7" class="volumemusic" onmousedown="volumeclick(7,'music');"></td>
+                      <td id="volumemusic8" class="volumemusic" onmousedown="volumeclick(8,'music');"></td>
+                      <td id="volumemusic9" class="volumemusic" onmousedown="volumeclick(9,'music');"></td>
+                      <td id="volumemusic10" class="volumemusic" onmousedown="volumeclick(10,'music');"></td>
+                      <td id="volumemusic11" class="volumemusic" onmousedown="volumeclick(11,'music');"></td>
+                      <td id="volumemusic12" class="volumemusic" onmousedown="volumeclick(12,'music');"></td>
+                      <td id="volumemusic13" class="volumemusic" onmousedown="volumeclick(13,'music');"></td>
+                      <td id="volumemusic14" class="volumemusic" onmousedown="volumeclick(14,'music');"></td>
+                      <td id="volumemusic15" class="volumemusic" onmousedown="volumeclick(15,'music');"></td>
+                      <td id="volumemusic16" class="volumemusic" onmousedown="volumeclick(16,'music');"></td>
+                    
+                  </tr>  
+        </table>
+        <table class="volumetable" style="left :200px; top: 100px;">
+                  <tr>
+                      <td id="volumesound0" class="volumesound" onmousedown="volumeclick(0,'sound');"></td>
+                      <td id="volumesound1" class="volumesound" onmousedown="volumeclick(1,'sound');"></td>
+                      <td id="volumesound2" class="volumesound" onmousedown="volumeclick(2,'sound');"></td>
+                      <td id="volumesound3" class="volumesound" onmousedown="volumeclick(3,'sound');"></td>
+                      <td id="volumesound4" class="volumesound" onmousedown="volumeclick(4,'sound');"></td>
+                      <td id="volumesound5" class="volumesound" onmousedown="volumeclick(5,'sound');"></td>
+                      <td id="volumesound6" class="volumesound" onmousedown="volumeclick(6,'sound');"></td>
+                      <td id="volumesound7" class="volumesound" onmousedown="volumeclick(7,'sound');"></td>
+                      <td id="volumesound8" class="volumesound" onmousedown="volumeclick(8,'sound');"></td>
+                      <td id="volumesound9" class="volumesound" onmousedown="volumeclick(9,'sound');"></td>
+                      <td id="volumesound10" class="volumesound" onmousedown="volumeclick(10,'sound');"></td>
+                      <td id="volumesound11" class="volumesound" onmousedown="volumeclick(11,'sound');"></td>
+                      <td id="volumesound12" class="volumesound" onmousedown="volumeclick(12,'sound');"></td>
+                      <td id="volumesound13" class="volumesound" onmousedown="volumeclick(13,'sound');"></td>
+                      <td id="volumesound14" class="volumesound" onmousedown="volumeclick(14,'sound');"></td>
+                      <td id="volumesound15" class="volumesound" onmousedown="volumeclick(15,'sound');"></td>
+                      <td id="volumesound16" class="volumesound" onmousedown="volumeclick(16,'sound');"></td>
+                    
+                  </tr>  
+        </table>
+        <table class="rotationtable" style="left :200px; top: 200px;">
+                   <tr>
+                      <td id="rotation0" class="rotation" onmousedown="rotationclick(0);">Default</td>
+                      <td id="rotation1" class="rotation" onmousedown="rotationclick(1);">180° rotation</td>
+                 </tr>  
+        </table>
+  
+            </div>
+            <div id="clickdiv" 
+                 onmousedown="clickdiv();" onmouseup="mouseupdiv();"></div>
+            <canvas id="canvas" width="800" height="600"></canvas>  
+            <canvas id="framebuffercanvas" width="800" height="600" style="display: none;"></canvas>  
+            <div id="textdiv" >
+                <p id="textp"></p>
+            </div>
+            <div id="choicehelper">
+
+                <div id="choicehelper2">
+                    <table id="choice" rules="all" width="600"></table>
+                </div>
+            </div>
+            
+            <div id="einkrefresh" ></div>
+
+        </div>
+
+
+        <script>
+      
+            $.ajaxSetup({ async: false }); 
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');     
+            var frmbfrcanvas = document.getElementById('framebuffercanvas');
+            var frmbfr = frmbfrcanvas.getContext('2d');         
+            var snd = document.getElementById('soundsystem');
+            var game = getUrlVars()["game"];
+
+             
+            startgame(game);
+        </script>
+           
+    </body>
+</html>

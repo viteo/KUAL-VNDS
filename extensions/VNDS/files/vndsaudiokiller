@@ -1,0 +1,2 @@
+
+cat /dev/input/event2 | while read -n 1 c ; do pkill vndsfilteraudio ; pkill lipc-wait-event; break; done
